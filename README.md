@@ -9,15 +9,15 @@ ndb npx jscodeshift -t ./transforms/something.js --extensions=ts --parser=ts ./s
 
 ## Usage
 
-1. `npm i -g jscodeshift`
-2. `jscodeshift -t ./transforms/[transform].js [files]`
+1. `yarn`
+2. `npx jscodeshift -t ./transforms/[transform].js [files]`
 3. Review changes via `git diff`. Keep what you want, throw it out if you don't. Magic!
 
 ## Option flags
 
 When executing codemods, you can configure options like so:
 
-`jscodeshift -t node_modules/5to6-codemod/transforms/[transform].js [files] --key=value`
+`npx jscodeshift -t node_modules/5to6-codemod/transforms/[transform].js [files] --key=value`
 
 ### Recast options
 
