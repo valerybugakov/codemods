@@ -11,7 +11,7 @@ import util from '../utils/main'
  * Into:
  *   import { MyPage as MyPageComponent, TMyPageProps } from './MyPage'
  *
- *   export const MyPage = withRouter(MyPageComponent)
+ *   export const MyPage = withRouter<TMyPageProps>(MyPageComponent)
  *
  */
 export default function containerComponentDefaultImportToNamed(file, api, options) {
