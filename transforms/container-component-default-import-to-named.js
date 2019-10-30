@@ -23,22 +23,22 @@ export default function containerComponentDefaultImportToNamed(file, api, option
 
   if (!exportRef) return
 
-  debugger
-
   const containerArgsParent = exportRef.value.declaration.expression || exportRef.value.declaration
   const componentName = containerArgsParent.arguments[0].name
   const componentNameImported = `${componentName}Component`
 
+  // Replace argument of the exported CallExpression with suffixed one
   const [_, containerArgument] = root.find(j.Identifier, { name: componentName }).paths()
   j(containerArgument).replaceWith(j.identifier(componentNameImported))
 
-  // Wrap class declaration into named export
+  // Convert default export into named export using component name
   const updatedExportDeclaration = j.exportNamedDeclaration(
     j.variableDeclaration('const', [
       j.variableDeclarator(j.identifier(componentName), exportRef.value.declaration)
     ])
   )
 
+  // Find default import specifier using component name
   const [importRef] = root
     .find(j.ImportDefaultSpecifier, { local: { name: componentName } })
     .paths()
@@ -47,10 +47,11 @@ export default function containerComponentDefaultImportToNamed(file, api, option
     j.identifier(componentNameImported)
   )
 
+  // Add named import specifier into import statement
   const importSpecifiers = importRef.parentPath.value
   importSpecifiers.push(namedImport)
 
-  // Update export argument name
+  // Remove default import and replace export declaration with the updated one
   j(importRef).remove()
   j(exportRef).replaceWith(updatedExportDeclaration)
 
