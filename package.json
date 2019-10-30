@@ -1,0 +1,30 @@
+{
+  "name": "@val/codemods",
+  "version": "1.0.0",
+  "description": "A collection of codemods.",
+  "main": "test.js",
+  "scripts": {
+    "preversion": "npm test",
+    "test": "eslint . && mocha"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "jscodeshift": "^0.6.4",
+    "lodash": "^4.17.4",
+    "recast": "^0.18.5"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "mocha": "^6.0.2"
+  },
+  "resolutions": {
+    "recast": "^0.18.5"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valerybugakov/codemods.git"
+  }
+}
