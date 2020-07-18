@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "jscodeshift": "^0.6.4",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "recast": "^0.18.5"
   },
   "devDependencies": {
