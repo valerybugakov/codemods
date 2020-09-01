@@ -4,7 +4,7 @@ Preview code AST of the target code using [AST explorer](https://astexplorer.net
 To interactively test and update codemods might be helpful to use [ndb](https://github.com/GoogleChromeLabs/ndb).
 
 ```sh
-ndb npx jscodeshift -t ./transforms/something.js --extensions=ts --parser=ts ./src/**/*container.ts
+ndb npx jscodeshift -t ./transforms/something.js --extensions=ts --parser=tsx ./src/**/*container.ts
 ```
 
 ## Usage
